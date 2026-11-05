@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Peluang Reseller Edu Kids - Jana Income 100% Margin</title>
+    <meta name="description" content="Jana pendapatan sampingan dengan menjual produk digital pendidikan Edu Kids. Untung 100% milik anda, jual 1 terus balik modal!">
+    
+    <!-- Google Fonts: Montserrat (Headlines) & Inter (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tm: {
+                            black: '#0f172a',    
+                            red: '#dc2626',      
+                            yellow: '#fde047',   
+                            gold: '#f59e0b',     
+                            green: '#16a34a',    
+                            greenDark: '#15803d',
+                            white: '#ffffff',
+                            gray: '#f3f4f6'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'cta': '0 10px 25px -5px rgba(22, 163, 74, 0.6), 0 8px 10px -6px rgba(22, 163, 74, 0.5)',
+                        'card': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { background-color: #f8fafc; color: #0f172a; overflow-x: hidden; }
+        
+        /* Accordion CSS */
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; }
+        .accordion-content.active { max-height: 800px; padding-bottom: 1.5rem; }
+        .accordion-icon { transition: transform 0.3s ease; }
+        .accordion-button[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
+
+        /* HIGHLIGHT TEXT */
+        .hl-yellow {
+            background-color: #fde047;
+            color: #000;
+            padding: 0 0.4rem;
+            border-radius: 4px;
+            font-weight: 900;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+        
+        .hl-red {
+            background-color: #dc2626;
+            color: #fff;
+            padding: 0 0.4rem;
+            border-radius: 4px;
+            font-weight: 900;
+        }
+
+        /* 3D AGGRESSIVE CTA BUTTON */
+        .btn-tm {
+            background: linear-gradient(to bottom, #22c55e, #16a34a);
+            border: 2px solid #14532d;
+            box-shadow: 0 6px 0 #14532d, 0 15px 20px rgba(22, 163, 74, 0.4);
+            transition: all 0.1s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+        .btn-tm:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 #14532d, 0 5px 10px rgba(22, 163, 74, 0.4);
+        }
+        .btn-tm::after {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        /* MARQUEE TESTIMONIALS */
+        .marquee-wrapper {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            padding: 1rem 0;
+        }
+        .marquee-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: marquee 25s linear infinite;
+            width: max-content;
+        }
+        .marquee-wrapper:hover .marquee-track, 
+        .marquee-wrapper:active .marquee-track {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-tm-yellow selection:text-black">
+
+    <!-- KONFIGURASI GAMBAR & HARGA (SANGAT MUDAH DIKEMASKINI) -->
+    <script>
+        // Fungsi magik tukar link Google Drive biasa jadi Direct Image!
+        function getDriveImage(link, fallbackImage) {
+            if (!link || link.includes('PASTE_LINK_')) return fallbackImage;
+            if (!link.includes('drive.google.com')) return link; // Jika link biasa, pulangkan asal
+            
+            // Cari ID fail dalam link Google Drive
+            const idMatch = link.match(/\/d\/([a-zA-Z0-9_-]+)/);
+            if (idMatch && idMatch[1]) {
+                return `https://drive.google.com/thumbnail?id=${idMatch[1]}&sz=w1000`;
+            }
+            return fallbackImage;
+        }
+
+        const STORE_CONFIG = {
+            prices: { kiddokit: "89", studybox: "89", combo: "150", comboOriginal: "178", comboSave: "28", endUserRef: "70" },
+            links: {
+                kiddokit_checkout: "#checkout-reseller-kiddokit", 
+                studybox_checkout: "#checkout-reseller-studybox",
+                combo_checkout: "#checkout-reseller-combo",
+                whatsapp_support: "https://wa.me/60123456789", 
+            },
+            media: {
+                // ==========================================
+                // LINK GOOGLE DRIVE TELAH DIKEMASKINI
+                // ==========================================
+                
+                hero_image: getDriveImage("https://drive.google.com/file/d/1zztW0VUwox2vNgLY1mfLQvrMnei77iab/view?usp=sharing", "WhatsApp Image 2026-11-04 at 7.19.50 AM (1).jpeg"),
+                kiddokit_showcase: getDriveImage("https://drive.google.com/file/d/1AZQDx-PA8ZAF_mmdfKpcmdAVRtQk4E6R/view?usp=drive_link", "WhatsApp Image 2026-11-04 at 7.19.38 AM.jpeg"),
+                studybox_showcase: getDriveImage("https://drive.google.com/file/d/1o57tTtV5Yyrvghm4JwF0bIKKPTajtBbf/view?usp=drive_link", "WhatsApp Image 2026-11-04 at 7.19.39 AM.jpeg"),
+                bonus_jawi: getDriveImage("https://drive.google.com/file/d/15xZ9-W6XBaQ0TXTfsM1ZunzT_ESXNSGU/view?usp=drive_link", "WhatsApp Image 2026-11-04 at 7.19.50 AM (1).jpeg"),
+                
+                // GAMBAR TESTIMONI KOTAK 1 HINGGA 6
+                testi_1: getDriveImage("https://drive.google.com/file/d/1EjnfnYXoXQZToIheGU3Qb4qc3EaA-_e1/view?usp=drive_link", ""),
+                testi_2: getDriveImage("https://drive.google.com/file/d/1uFo9M8PKTswY-C8YiBIx_lWD6pPquA3b/view?usp=drive_link", ""),
+                testi_3: getDriveImage("https://drive.google.com/file/d/1nhUtCyhgIuwpqNCTJVD40xnYRMWppMqV/view?usp=drive_link", ""),
+                testi_4: getDriveImage("https://drive.google.com/file/d/1mV4zFM_aqKPAAR9JKrKaRaYhu5Ao7W_B/view?usp=drive_link", ""),
+                testi_5: getDriveImage("https://drive.google.com/file/d/1JnbYkH2E2zSvJ70wnAkD7jbuxGsHjMC3/view?usp=drive_link", ""),
+                testi_6: getDriveImage("https://drive.google.com/file/d/19uNRbaYeaKatH7Jtgp_kXVqPqy0BZu3t/view?usp=drive_link", ""),
+                
+                testi_placeholder: "https://placehold.co/400x400/0f172a/fde047?text=Gambar+Feedback"
+            },
+            metaPixelId: ""
+        };
+    </script>
+
+    <!-- URGENCY BAR -->
+    <div class="bg-tm-red text-white text-center py-3 px-4 font-bold text-xs sm:text-sm md:text-base tracking-wide border-b-4 border-tm-yellow sticky top-0 z-50 shadow-lg flex flex-col sm:flex-row justify-center items-center gap-2">
+        <span class="animate-pulse flex items-center gap-2">
+            ⚠️ <span class="uppercase">Tawaran Harga Reseller Terhad!</span>
+        </span>
+        <span class="bg-black text-tm-yellow px-3 sm:px-4 py-1 rounded font-black border border-white/20">
+            TAMAT DALAM: <span id="countdown-timer" class="font-mono text-base sm:text-lg">14:59</span>
+        </span>
+    </div>
+
+    <!-- SECTION 1: HERO -->
+    <section class="pt-8 md:pt-12 lg:pt-16 pb-12 md:pb-20 px-4 bg-tm-black text-white relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-block bg-tm-red text-white font-black px-4 sm:px-6 py-2 text-xs sm:text-sm tracking-widest mb-6 uppercase border border-tm-red/50 shadow-[0_0_15px_rgba(220,38,38,0.8)]">
+                🔥 PELUANG JANA PENDAPATAN 2026 🔥
+            </div>
+            
+            <h1 class="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] mb-6 sm:mb-8 uppercase px-2">
+                TERBONGKAR! CARA PANTAS JANA INCOME DENGAN JUAL PRODUK DIGITAL. <br class="hidden sm:block">
+                <span class="hl-yellow text-tm-black mt-2 inline-block shadow-[0_0_30px_rgba(253,224,71,0.5)]">MARGIN KEUNTUNGAN 100%!</span>
+            </h1>
+            
+            <p class="text-base sm:text-lg md:text-2xl text-gray-300 font-semibold mb-8 md:mb-10 max-w-4xl mx-auto leading-relaxed px-4">
+                Tak perlu simpan stok, tak perlu pos barang, tak perlu pening cipta modul sendiri. <br class="hidden lg:block">
+                <span class="text-tm-yellow underline decoration-tm-red decoration-2 md:decoration-4">Jual 1 unit sahaja dah terus balik modal!</span> Jualan seterusnya 100% masuk poket anda!
+            </p>
+            
+            <div class="relative w-full max-w-md sm:max-w-xl lg:max-w-3xl mx-auto mb-10 border-4 border-tm-yellow rounded-xl p-1 bg-white">
+                <img id="img-hero" src="" alt="Reseller Mockup" class="w-full h-auto rounded-lg relative z-10">
+                <div class="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-tm-red text-white font-black text-sm sm:text-lg p-3 sm:p-5 rounded-full shadow-2xl rotate-12 z-20 border-4 border-white flex flex-col items-center justify-center w-24 h-24 sm:w-36 sm:h-36">
+                    <span class="text-2xl sm:text-4xl drop-shadow-md">💰</span>
+                    <span class="leading-tight text-center mt-0 sm:mt-1">UNTUNG<br>100%</span>
+                </div>
+            </div>
+
+            <div class="flex justify-center px-4">
+                <a href="#pricing" class="btn-tm text-white text-lg sm:text-xl md:text-3xl font-black py-4 sm:py-5 px-6 sm:px-10 rounded-xl w-full max-w-lg text-center flex flex-col items-center justify-center animate-pulse-fast">
+                    SAYA NAK JANA INCOME SEKARANG!
+                    <span class="text-xs sm:text-sm font-bold mt-2 text-white/90 uppercase tracking-widest flex items-center gap-2">
+                        Klik Sini Untuk Mula <span class="text-lg sm:text-xl">👇</span>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: TESTIMONIALS -->
+    <section class="py-16 md:py-20 bg-tm-gray border-b-8 border-tm-black overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-4xl uppercase text-tm-black mb-3 md:mb-4 leading-tight">
+                    "BETUL KE BOLEH BUAT DUIT DENGAN <span class="hl-red">EDU KIDS?</span>"
+                </h2>
+                <p class="text-base sm:text-lg font-bold text-gray-700">Lihat feedback mereka yang dah mula jana pendapatan bersih 100% setiap hari!</p>
+            </div>
+        </div>
+            
+        <div class="marquee-wrapper">
+            <div class="marquee-track px-4">
+                
+                <!-- SET 1 -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-1 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 1">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Saya suri rumah je, promote dalam group WhatsApp taman. <strong class="hl-yellow">Hari pertama terus dapat 5 sale.</strong> Untung bersih RM750! Terus balik modal."
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Pn. Aisyah</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-2 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 2">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Paling best part tak payah pos barang! Orang bayar, saya terus bagi link. <strong class="hl-yellow">Fokus jual Kombo RM150</strong>, untung besar gila. Senang buat part time."
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Syafiqah</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-3 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 3">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Baru join minggu lepas, bahan marketing semua dah ready. Tinggal copy paste je, <strong class="hl-yellow">sale masuk setiap hari.</strong> Margin 100% tu yang buat syok!"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Hafizudin</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-4 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 4">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Memang high demand. Parents and cikgu ramai cari worksheets yang boleh print ni. <strong class="hl-yellow">Senang sangat nak close sale.</strong>"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Cikgu Murni</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-5 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 5">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Support group and guide yang diberikan memang sangat membantu untuk orang yang zero pasal bisnes digital macam saya. <strong class="hl-yellow">First day dah pecah telur.</strong>"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Fatin Nabila</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-6 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 6">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Bayar sekali seumur hidup je untuk akses link, tapi boleh jual berkali-kali. <strong class="hl-yellow">Bulan ni je dah cecah 4 angka.</strong> Syukur jumpa peluang ni!"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Khairul</div>
+                </div>
+
+                <!-- SET 2 (Duplicate for continuous loop) -->
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-1 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 1">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Saya suri rumah je, promote dalam group WhatsApp taman. <strong class="hl-yellow">Hari pertama terus dapat 5 sale.</strong> Untung bersih RM750! Terus balik modal."
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Pn. Aisyah</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-2 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 2">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Paling best part tak payah pos barang! Orang bayar, saya terus bagi link. <strong class="hl-yellow">Fokus jual Kombo RM150</strong>, untung besar gila. Senang buat part time."
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Syafiqah</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-3 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 3">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Baru join minggu lepas, bahan marketing semua dah ready. Tinggal copy paste je, <strong class="hl-yellow">sale masuk setiap hari.</strong> Margin 100% tu yang buat syok!"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Hafizudin</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-4 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 4">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Memang high demand. Parents and cikgu ramai cari worksheets yang boleh print ni. <strong class="hl-yellow">Senang sangat nak close sale.</strong>"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Cikgu Murni</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-5 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 5">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Support group and guide yang diberikan memang sangat membantu untuk orang yang zero pasal bisnes digital macam saya. <strong class="hl-yellow">First day dah pecah telur.</strong>"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Fatin Nabila</div>
+                </div>
+                <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-card border-l-8 border-tm-green w-[280px] sm:w-[350px] shrink-0 flex flex-col h-[460px] sm:h-[500px]">
+                    <img class="img-testi-6 w-full h-52 sm:h-60 object-contain bg-gray-50 rounded-lg mb-4 border-2 border-gray-100 p-1" alt="Feedback 6">
+                    <div class="text-xl sm:text-2xl mb-2">⭐⭐⭐⭐⭐</div>
+                    <p class="text-gray-800 font-medium italic text-xs sm:text-sm leading-relaxed flex-grow">
+                        "Bayar sekali seumur hidup je untuk akses link, tapi boleh jual berkali-kali. <strong class="hl-yellow">Bulan ni je dah cecah 4 angka.</strong> Syukur jumpa peluang ni!"
+                    </p>
+                    <div class="font-bold text-tm-black text-sm sm:text-base mt-4">- Khairul</div>
+                </div>
+            </div>
+        </div>
+        
+        <p class="text-center text-xs sm:text-sm text-gray-400 mt-6 px-4">*Feedback di atas adalah berdasarkan pengalaman sebenar reseller. Hasil pendapatan bergantung kepada usaha masing-masing.</p>
+    </section>
+
+    <!-- SECTION 3: THE PAIN POINTS -->
+    <section id="peluang" class="py-12 md:py-20 bg-white px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-4xl mb-8 md:mb-10 text-tm-black uppercase leading-tight">
+                ANDA ADA MASALAH MACAM NI BILA NAK MULA BISNES?
+            </h2>
+            
+            <div class="grid sm:grid-cols-2 gap-4 sm:gap-6 mb-10 md:mb-12 text-left">
+                <div class="bg-red-50 p-5 md:p-6 rounded-xl border border-red-200 flex items-start gap-3 md:gap-4">
+                    <span class="text-2xl md:text-3xl shrink-0">❌</span>
+                    <div>
+                        <h3 class="font-black text-lg md:text-xl mb-1 text-tm-black">Tiada Produk Sendiri</h3>
+                        <p class="text-gray-600 font-medium text-sm md:text-base">Nak buat e-book atau modul perlukan masa berbulan-bulan dan kos design yang mahal.</p>
+                    </div>
+                </div>
+                <div class="bg-red-50 p-5 md:p-6 rounded-xl border border-red-200 flex items-start gap-3 md:gap-4">
+                    <span class="text-2xl md:text-3xl shrink-0">❌</span>
+                    <div>
+                        <h3 class="font-black text-lg md:text-xl mb-1 text-tm-black">Penat Urus Stok & Pos</h3>
+                        <p class="text-gray-600 font-medium text-sm md:text-base">Tak sanggup nak beratur panjang di pejabat pos setiap hari dan simpan kotak bersepah.</p>
+                    </div>
+                </div>
+                <div class="bg-red-50 p-5 md:p-6 rounded-xl border border-red-200 flex items-start gap-3 md:gap-4">
+                    <span class="text-2xl md:text-3xl shrink-0">❌</span>
+                    <div>
+                        <h3 class="font-black text-lg md:text-xl mb-1 text-tm-black">Komisen Terlalu Kecil</h3>
+                        <p class="text-gray-600 font-medium text-sm md:text-base">Jadi dropship penat promote, tapi untung cuma RM5-RM10. Bila nak kaya macam ni?</p>
+                    </div>
+                </div>
+                <div class="bg-red-50 p-5 md:p-6 rounded-xl border border-red-200 flex items-start gap-3 md:gap-4">
+                    <span class="text-2xl md:text-3xl shrink-0">❌</span>
+                    <div>
+                        <h3 class="font-black text-lg md:text-xl mb-1 text-tm-black">Risiko Modal Besar</h3>
+                        <p class="text-gray-600 font-medium text-sm md:text-base">Takut nak keluar modal beribu-ribu untuk simpan stok yang belum tentu laku.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-tm-black text-white p-6 md:p-8 rounded-2xl shadow-xl max-w-4xl mx-auto transform lg:hover:scale-105 transition duration-300">
+                <p class="font-black text-xl sm:text-2xl md:text-3xl uppercase leading-snug">
+                    BERHENTI BUANG MASA! <br>
+                    GUNA PRODUK <span class="hl-yellow">EDU KIDS</span> UNTUK JANA INCOME HARI INI JUGA!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PRODUCT SHOWCASE -->
+    <section id="produk" class="py-16 md:py-24 px-4 bg-tm-gray border-y-2 border-gray-200">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-5xl mb-4 text-tm-black uppercase leading-tight">PRODUK APA YANG ANDA AKAN JUAL NANTI?</h2>
+                <p class="text-lg md:text-xl font-bold text-tm-red max-w-2xl mx-auto">Bukan sekadar e-book! Ini adalah pakej pendidikan digital premium yang sangat tinggi permintaan.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <!-- CARD 1 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-card border-2 border-gray-200 relative mt-4 md:mt-0">
+                    <div class="absolute -top-4 -right-2 sm:-right-4 bg-tm-black text-tm-yellow font-black px-3 py-1 sm:px-4 sm:py-2 rounded-lg transform rotate-6 border border-tm-yellow shadow-lg text-xs sm:text-sm">
+                        UMUR 2-7 TAHUN
+                    </div>
+                    <h3 class="font-heading font-black text-2xl sm:text-3xl mb-4 text-tm-black">KIDDOKIT+</h3>
+                    <img id="img-showcase-kiddokit" src="" alt="Kiddokit Content" class="w-full h-auto rounded-xl mb-6 shadow-md border border-gray-200">
+                    <p class="text-gray-800 font-bold mb-6 bg-yellow-50 p-4 rounded-xl border border-yellow-200 text-sm md:text-base">
+                        Mudah dipasarkan kerana ibu bapa sentiasa mencari aktiviti prasekolah untuk anak di rumah!
+                    </p>
+                    <ul class="space-y-3 font-bold text-tm-black text-base md:text-lg mb-4">
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-xl md:text-2xl shrink-0">✅</span> Lebih 10,000 Worksheets</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-xl md:text-2xl shrink-0">✅</span> Aplikasi Interaktif & Games</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-xl md:text-2xl shrink-0">✅</span> Aktiviti Bijak Fonik & Tracing</li>
+                    </ul>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="bg-white rounded-2xl p-6 md:p-8 shadow-card border-2 border-gray-200 relative mt-8 md:mt-0">
+                    <div class="absolute -top-4 -right-2 sm:-right-4 bg-tm-black text-tm-yellow font-black px-3 py-1 sm:px-4 sm:py-2 rounded-lg transform rotate-6 border border-tm-yellow shadow-lg text-xs sm:text-sm">
+                        UMUR 7-12 TAHUN
+                    </div>
+                    <h3 class="font-heading font-black text-2xl sm:text-3xl mb-4 text-tm-black">STUDYBOX</h3>
+                    <img id="img-showcase-studybox" src="" alt="StudyBox Content" class="w-full h-auto rounded-xl mb-6 shadow-md border border-gray-200">
+                    <p class="text-gray-800 font-bold mb-6 bg-yellow-50 p-4 rounded-xl border border-yellow-200 text-sm md:text-base">
+                        Sangat laku keras terutamanya musim peperiksaan kerana ia lengkap dengan set latihan dan nota!
+                    </p>
+                    <ul class="space-y-3 font-bold text-tm-black text-base md:text-lg mb-4">
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-xl md:text-2xl shrink-0">✅</span> 5 Aplikasi (BM, BI, Math, Sc, PI)</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-xl md:text-2xl shrink-0">✅</span> Nota Ringkas & Latihan Topikal</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-xl md:text-2xl shrink-0">✅</span> 10 Set Soalan UASA Tahun 4-6</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4.5: RESELLER SUPPORT -->
+    <section class="py-16 md:py-20 bg-white border-b-8 border-tm-green px-4 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-10 md:mb-12">
+                <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-5xl mb-4 uppercase text-tm-black leading-tight">
+                    "SAYA TAK PANDAI JUAL, MACAM MANA NAK MULA?"
+                </h2>
+                <p class="text-base sm:text-lg md:text-xl font-bold bg-tm-yellow inline-block px-4 py-2 rounded shadow">
+                    Jangan Risau! Kami Tak Biarkan Anda Terkontang-Kanting.
+                </p>
+            </div>
+            
+            <div class="bg-gray-50 border-2 border-gray-200 p-6 sm:p-8 md:p-10 rounded-2xl shadow-card mb-8">
+                <p class="text-base md:text-lg text-gray-800 font-semibold mb-8 leading-relaxed text-center sm:text-left">
+                    Kami faham, ramai yang baru nak mula tak tahu selok-belok bisnes online. Oleh sebab itu, kami sediakan <strong class="hl-yellow">SUPPORT LENGKAP</strong> supaya kerja anda hanya tinggal <span class="underline decoration-tm-red">promote dekat sosial media anda sahaja!</span>
+                </p>
+                
+                <div class="grid sm:grid-cols-2 gap-6 md:gap-8">
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tm-green text-white p-3 rounded-xl shadow-lg shrink-0"><span class="text-2xl">👥</span></div>
+                        <div>
+                            <h4 class="font-black text-lg md:text-xl text-tm-black mb-1">Group Support Disediakan</h4>
+                            <p class="text-gray-600 font-medium text-sm md:text-base">Boleh tanya apa sahaja. Komuniti seller sentiasa bantu-membantu.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tm-green text-white p-3 rounded-xl shadow-lg shrink-0"><span class="text-2xl">🖼️</span></div>
+                        <div>
+                            <h4 class="font-black text-lg md:text-xl text-tm-black mb-1">Bahan Marketing Semua Ada</h4>
+                            <p class="text-gray-600 font-medium text-sm md:text-base">Gambar, poster, dan video produk dah siap sedia untuk anda gunakan.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tm-green text-white p-3 rounded-xl shadow-lg shrink-0"><span class="text-2xl">📝</span></div>
+                        <div>
+                            <h4 class="font-black text-lg md:text-xl text-tm-black mb-1">Ayat Copywriting Diberikan</h4>
+                            <p class="text-gray-600 font-medium text-sm md:text-base">Tak payah perah otak fikir ayat iklan. Tinggal 'Copy & Paste' je!</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="bg-tm-green text-white p-3 rounded-xl shadow-lg shrink-0"><span class="text-2xl">👩‍🏫</span></div>
+                        <div>
+                            <h4 class="font-black text-lg md:text-xl text-tm-black mb-1">Guide Step-by-Step</h4>
+                            <p class="text-gray-600 font-medium text-sm md:text-base">Anda akan dibimbing dari mula sampai anda pandai menghasilkan jualan pertama.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-tm-black text-white p-6 md:p-8 rounded-xl shadow-2xl text-center border-l-8 border-tm-red max-w-4xl mx-auto">
+                <h3 class="font-heading font-black text-xl md:text-2xl uppercase text-tm-yellow mb-3 md:mb-2 leading-tight">Kenapa Produk Ni Senang Jual?</h3>
+                <p class="font-bold text-base md:text-lg leading-relaxed">
+                    Worksheets & aplikasi kanak-kanak ni <strong>MEMANG HIGH DEMAND!</strong> Ramai parents dan cikgu cari sebab ia boleh diguna melalui <span class="text-tm-yellow">Telefon / iPad / Tab</span>, dan juga boleh di <span class="text-tm-yellow">PRINT OUT</span> berkali-kali. <br><br> Modal anda cuma bayar untuk Lifetime Access harini je!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: SALES SIMULATOR -->
+    <section id="simulasi" class="py-12 md:py-20 bg-tm-black text-white px-4 border-b-8 border-tm-yellow">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-8 md:mb-10">
+                <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-4xl mb-3 md:mb-4 uppercase text-tm-yellow leading-tight">POTENSI KEUNTUNGAN ANDA!</h2>
+                <p class="text-gray-300 font-bold text-sm sm:text-base">Masukkan sasaran jualan anda dan lihat sendiri berapa banyak anda boleh untung.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-xl max-w-2xl mx-auto text-tm-black">
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-sm sm:text-base font-black mb-1">Harga Jual Per Unit (RM):</label>
+                        <input type="number" id="sim-price" value="89" class="w-full bg-gray-100 border-2 border-gray-300 rounded-lg px-4 py-3 font-bold text-lg md:text-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm sm:text-base font-black mb-1">Target Jualan (Unit):</label>
+                        <input type="number" id="sim-sales" value="10" class="w-full bg-gray-100 border-2 border-gray-300 rounded-lg px-4 py-3 font-bold text-lg md:text-xl">
+                    </div>
+                    <div>
+                        <label class="block text-sm sm:text-base font-black mb-1">Tolak Kos Marketing/Ads (RM):</label>
+                        <input type="number" id="sim-cost" value="100" class="w-full bg-gray-100 border-2 border-gray-300 rounded-lg px-4 py-3 font-bold text-lg md:text-xl text-tm-red">
+                    </div>
+                </div>
+
+                <div class="bg-tm-yellow border-4 border-tm-black p-4 md:p-6 rounded-xl text-center">
+                    <span class="text-tm-black font-black text-sm md:text-lg uppercase block mb-1">UNTUNG BERSIH ANDA:</span>
+                    <span class="font-black text-4xl sm:text-5xl text-tm-black drop-shadow-md">RM <span id="sim-net">790</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: MAIN PRICING -->
+    <section id="pricing" class="py-16 md:py-24 bg-white px-4 relative">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="text-center max-w-4xl mx-auto mb-12 md:mb-16">
+                <div class="inline-block bg-tm-red text-white font-black px-6 py-2 sm:px-8 sm:py-3 rounded-full text-sm sm:text-lg mb-6 shadow-[0_0_20px_rgba(220,38,38,0.6)] animate-pulse uppercase">
+                    PILIH PAKEJ LESEN RESELLER ANDA!
+                </div>
+                <h2 class="font-heading font-black text-3xl sm:text-4xl md:text-5xl lg:text-[4.5rem] mb-6 text-tm-black uppercase leading-tight">
+                    BUAT KEPUTUSAN <span class="hl-yellow text-tm-black block sm:inline-block mt-2 sm:mt-0">SEKARANG</span>.
+                </h2>
+                <p class="text-base sm:text-lg md:text-xl font-bold bg-gray-100 inline-block px-6 sm:px-8 py-3 sm:py-4 rounded-xl border border-gray-300 text-tm-black">
+                    Bayar sekali, hak jual milik anda! <span class="text-tm-red block md:inline">Tawaran ini boleh ditutup bila-bila masa.</span>
+                </p>
+            </div>
+
+            <!-- Pricing Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 lg:gap-8 max-w-6xl mx-auto lg:items-end">
+                
+                <!-- CARD 3: COMBO RESELLER -->
+                <div class="bg-tm-black border-4 border-tm-yellow p-1 rounded-2xl flex flex-col h-full lg:-translate-y-6 z-30 shadow-[0_20px_50px_rgba(245,158,11,0.3)] order-1 md:col-span-2 lg:col-span-1 lg:order-2">
+                    <div class="bg-tm-red text-white text-center font-black py-2 text-sm sm:text-base uppercase tracking-widest animate-pulse rounded-t-xl">
+                        🔥 PAKEJ PALING BERBALOI 🔥
+                    </div>
+                    <div class="bg-tm-black p-6 sm:p-8 flex flex-col h-full rounded-b-xl">
+                        <h3 class="font-heading font-black text-3xl sm:text-4xl uppercase text-tm-yellow text-center mb-2 drop-shadow-md">KOMBO LENGKAP</h3>
+                        <p class="text-xs sm:text-sm font-bold text-white/80 text-center mb-6">Kiddokit+ & StudyBox (Umur 2-12 Tahun)</p>
+                        
+                        <div class="text-center mb-1 harga-asal-container">
+                            <span class="text-base sm:text-lg font-bold text-gray-400 line-through">HARGA ASAL: RM<span class="price-combo-ori">...</span></span>
+                        </div>
+                        
+                        <div class="flex justify-center items-start gap-1 mb-2 text-white">
+                            <span class="text-2xl sm:text-3xl font-black mt-1 sm:mt-2 text-tm-yellow">RM</span>
+                            <span class="text-6xl sm:text-[5.5rem] font-black price-combo leading-none text-white">...</span>
+                        </div>
+                        
+                        <div class="text-center mb-8 harga-asal-container">
+                            <span class="hl-yellow text-tm-black text-xs sm:text-sm font-black px-4 py-1.5 rounded-md uppercase">ANDA JIMAT RM<span class="price-combo-save">...</span></span>
+                        </div>
+
+                        <div class="bg-white/10 border border-white/20 rounded-xl p-5 sm:p-6 mb-8 lg:mt-auto">
+                            <ul class="space-y-3 sm:space-y-4 font-bold text-white text-base sm:text-lg">
+                                <li class="flex items-center gap-3"><span class="text-tm-green text-xl sm:text-2xl shrink-0">✔️</span> Lesen Kiddokit+</li>
+                                <li class="flex items-center gap-3"><span class="text-tm-green text-xl sm:text-2xl shrink-0">✔️</span> Lesen StudyBox</li>
+                                <li class="flex items-center gap-3"><span class="text-tm-green text-xl sm:text-2xl shrink-0">✔️</span> Margin Untung 100%</li>
+                                <li class="flex items-start gap-3 mt-4 pt-4 border-t border-white/20 text-tm-yellow">
+                                    <span class="text-2xl sm:text-3xl shrink-0">🎁</span> <span>PERCUMA BONUS CELIK JAWI!</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <button onclick="handleCheckout('combo')" class="btn-tm w-full text-white font-black text-xl sm:text-2xl py-5 sm:py-6 rounded-xl flex flex-col items-center justify-center mt-auto">
+                            SAYA NAK KOMBO INI!
+                            <span class="text-[10px] sm:text-xs font-bold mt-1 opacity-90 uppercase tracking-widest text-tm-yellow">Klik Sini Sekarang &rarr;</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- CARD 1: RESELLER KIDDOKIT+ -->
+                <div class="bg-white border-4 border-gray-200 p-6 sm:p-8 rounded-2xl flex flex-col h-full shadow-card hover:border-tm-black transition-colors order-2 lg:order-1 lg:col-span-1">
+                    <h3 class="font-heading font-black text-2xl sm:text-3xl mb-2 text-tm-black uppercase text-center">KIDDOKIT+</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 font-bold mb-6 text-center">Pasaran: Umur 2-7 Tahun</p>
+                    
+                    <div class="flex items-start justify-center gap-1 mb-2 text-tm-black">
+                        <span class="text-xl sm:text-2xl font-bold mt-1 sm:mt-2">RM</span>
+                        <span class="text-5xl sm:text-6xl font-black price-kiddokit leading-none">...</span>
+                    </div>
+                    <div class="text-center text-tm-red font-black text-xs sm:text-sm uppercase mb-8">Sekali Bayar Sahaja!</div>
+                    
+                    <ul class="space-y-3 sm:space-y-4 mb-8 flex-grow font-bold text-gray-700 text-sm sm:text-base">
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-lg sm:text-xl shrink-0">✅</span> Akses Bahan Kiddokit+</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-lg sm:text-xl shrink-0">✅</span> Lesen Jual Semula Sah</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-lg sm:text-xl shrink-0">✅</span> Margin Keuntungan 100%</li>
+                    </ul>
+                    
+                    <button onclick="handleCheckout('kiddokit')" class="w-full bg-tm-black text-white hover:bg-gray-800 font-black py-3 sm:py-4 rounded-xl text-lg sm:text-xl uppercase transition-all shadow-md mt-auto">
+                        PILIH KIDDOKIT+
+                    </button>
+                </div>
+
+                <!-- CARD 2: RESELLER STUDYBOX -->
+                <div class="bg-white border-4 border-gray-200 p-6 sm:p-8 rounded-2xl flex flex-col h-full shadow-card hover:border-tm-black transition-colors order-3 lg:col-span-1">
+                    <h3 class="font-heading font-black text-2xl sm:text-3xl mb-2 text-tm-black uppercase text-center">STUDYBOX</h3>
+                    <p class="text-xs sm:text-sm text-gray-500 font-bold mb-6 text-center">Pasaran: Umur 7-12 Tahun</p>
+                    
+                    <div class="flex items-start justify-center gap-1 mb-2 text-tm-black">
+                        <span class="text-xl sm:text-2xl font-bold mt-1 sm:mt-2">RM</span>
+                        <span class="text-5xl sm:text-6xl font-black price-studybox leading-none">...</span>
+                    </div>
+                    <div class="text-center text-tm-red font-black text-xs sm:text-sm uppercase mb-8">Sekali Bayar Sahaja!</div>
+                    
+                    <ul class="space-y-3 sm:space-y-4 mb-8 flex-grow font-bold text-gray-700 text-sm sm:text-base">
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-lg sm:text-xl shrink-0">✅</span> Akses Bahan StudyBox</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-lg sm:text-xl shrink-0">✅</span> Lesen Jual Semula Sah</li>
+                        <li class="flex items-start gap-3"><span class="text-tm-green text-lg sm:text-xl shrink-0">✅</span> Margin Keuntungan 100%</li>
+                    </ul>
+                    
+                    <button onclick="handleCheckout('studybox')" class="w-full bg-tm-black text-white hover:bg-gray-800 font-black py-3 sm:py-4 rounded-xl text-lg sm:text-xl uppercase transition-all shadow-md mt-auto">
+                        PILIH STUDYBOX
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: COMBO BONUS -->
+    <section class="py-12 md:py-16 bg-tm-yellow text-tm-black px-4 border-y-8 border-tm-black">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-10">
+            <div class="w-full sm:w-2/3 md:w-5/12 mx-auto">
+                <img id="img-bonus" src="" alt="Bonus Celik Jawi" class="w-full h-auto rounded-2xl shadow-2xl border-4 border-tm-black transform -rotate-2 hover:rotate-0 transition-transform">
+            </div>
+            <div class="w-full md:w-7/12 text-center md:text-left mt-6 md:mt-0">
+                <h3 class="font-heading font-black text-3xl sm:text-4xl md:text-5xl mb-4 md:mb-6 uppercase leading-tight">
+                    PERCUMA BONUS <br class="hidden md:block"> <span class="hl-red">CELIK JAWI!</span>
+                </h3>
+                <p class="text-lg md:text-xl font-bold mb-6 md:mb-8 text-gray-900 leading-relaxed">
+                    Tawaran gila! Anda akan dapat produk tambahan ini secara PERCUMA apabila mendaftar Pakej Kombo hari ini. Boleh jadikan bonus untuk pikat pelanggan anda!
+                </p>
+                <a href="#pricing" class="inline-block bg-tm-black text-white hover:bg-tm-red font-black text-xl md:text-2xl py-3 md:py-4 px-8 md:px-10 rounded-xl transition-all shadow-[0_6px_0_#000] active:translate-y-1 active:shadow-none uppercase">
+                    SAYA NAK BONUS INI!
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FAQ -->
+    <section id="faq" class="py-16 md:py-20 bg-white px-4">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="font-heading font-black text-2xl sm:text-3xl md:text-4xl text-center mb-8 md:mb-10 text-tm-black uppercase leading-tight">MASIH RAGU-RAGU? BACA INI.</h2>
+            
+            <div class="space-y-4" id="faq-container">
+                <div class="border-2 border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="accordion-button w-full px-5 md:px-6 py-4 md:py-5 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg pr-4">Betul ke untung 100% milik saya?</span>
+                        <svg class="accordion-icon w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-5 md:px-6 text-gray-700 font-medium pb-4 md:pb-5 text-sm md:text-base">
+                        YA BETUL! Tiada sistem agen atau downline. Pelanggan bayar terus ke akaun bank anda. Kami tidak ambil walau 1 sen pun dari jualan anda.
+                    </div>
+                </div>
+                
+                <div class="border-2 border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="accordion-button w-full px-5 md:px-6 py-4 md:py-5 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg pr-4">Adakah ini bayaran bulanan?</span>
+                        <svg class="accordion-icon w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-5 md:px-6 text-gray-700 font-medium pb-4 md:pb-5 text-sm md:text-base">
+                        TIDAK! Bayaran pendaftaran pakej di atas adalah untuk SEUMUR HIDUP. Jual berkali-kali tanpa perlu bayar royalti kepada kami.
+                    </div>
+                </div>
+
+                <div class="border-2 border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                    <button class="accordion-button w-full px-5 md:px-6 py-4 md:py-5 text-left flex justify-between items-center focus:outline-none" aria-expanded="false">
+                        <span class="font-bold text-base md:text-lg pr-4">Macam mana nak hantar barang pada pelanggan?</span>
+                        <svg class="accordion-icon w-5 h-5 md:w-6 md:h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-5 md:px-6 text-gray-700 font-medium pb-4 md:pb-5 text-sm md:text-base">
+                        Anda cuma perlu berikan link/pautan rasmi akses produk kepada pelanggan selepas mereka membuat pembayaran kepada anda. Mudah dan pantas!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: FINAL WARNING CTA -->
+    <section class="py-16 md:py-24 bg-tm-black text-white text-center px-4 relative border-t-8 border-tm-red">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="font-heading font-black text-3xl sm:text-4xl md:text-6xl mb-4 md:mb-6 uppercase text-tm-yellow leading-tight">
+                JANGAN LEPASKAN PELUANG KEEMASAN INI!
+            </h2>
+            <p class="text-lg sm:text-xl md:text-2xl mb-10 md:mb-12 font-bold max-w-2xl mx-auto px-2">
+                Setiap saat anda bertangguh, orang lain dah mula buat jualan dan kaut untung bersih. <span class="hl-red mt-2 inline-block md:mt-0">Bertindak sekarang!</span>
+            </p>
+            
+            <a href="#pricing" class="btn-tm inline-flex flex-col items-center justify-center text-white text-xl sm:text-2xl md:text-4xl font-black py-5 px-8 md:py-6 md:px-16 rounded-xl w-full sm:w-auto max-w-2xl mx-auto animate-pulse-fast">
+                KLIK SINI UNTUK MULA!
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 pt-10 md:pt-12 pb-24 lg:pb-12 px-4 text-center border-t border-gray-200">
+        <div class="max-w-3xl mx-auto">
+            <p class="font-black text-xl md:text-2xl text-tm-black mb-1 md:mb-2 uppercase">ICANG LEGACY</p>
+            <p class="text-gray-600 font-bold mb-6 text-sm md:text-base">No. Pendaftaran: AS0493760-U</p>
+            
+            <p class="text-[10px] md:text-xs text-gray-500 leading-relaxed font-medium px-4">
+                &copy; <span id="current-year"></span> Hak Cipta Terpelihara.<br><br>
+                <strong>Penafian:</strong> Segala testimoni dan simulasi pendapatan di halaman ini adalah contoh potensi yang boleh dicapai. Kejayaan individu bergantung kepada tahap usaha pemasaran, komitmen, dan kreativiti masing-masing. Kami tidak menjamin sebarang jumlah pendapatan spesifik.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div id="mobile-sticky-cta" class="md:hidden fixed bottom-0 left-0 w-full bg-tm-black border-t-4 border-tm-yellow p-3 z-40 transform translate-y-full transition-transform flex justify-between items-center shadow-[0_-10px_20px_rgba(0,0,0,0.3)]">
+        <div>
+            <div class="text-[10px] sm:text-xs font-black text-white uppercase">KOMBO LENGKAP</div>
+            <div class="text-tm-yellow font-black text-xl sm:text-2xl leading-none mt-0.5">RM<span class="price-combo"></span></div>
+        </div>
+        <a href="#pricing" class="btn-tm text-white font-black py-2.5 sm:py-3 px-5 sm:px-6 rounded-lg text-xs sm:text-sm uppercase">
+            TEMPAH SEKARANG
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Prices Update
+            document.querySelectorAll('.price-kiddokit').forEach(el => el.innerText = STORE_CONFIG.prices.kiddokit);
+            document.querySelectorAll('.price-studybox').forEach(el => el.innerText = STORE_CONFIG.prices.studybox);
+            document.querySelectorAll('.price-combo').forEach(el => el.innerText = STORE_CONFIG.prices.combo);
+            document.querySelectorAll('.price-end-user').forEach(el => el.innerText = STORE_CONFIG.prices.endUserRef);
+            
+            const oriPrices = document.querySelectorAll('.price-combo-ori');
+            const savePrices = document.querySelectorAll('.price-combo-save');
+            const oriContainers = document.querySelectorAll('.harga-asal-container');
+            
+            if(STORE_CONFIG.prices.comboOriginal && STORE_CONFIG.prices.comboOriginal !== "") {
+                oriPrices.forEach(el => el.innerText = STORE_CONFIG.prices.comboOriginal);
+                savePrices.forEach(el => el.innerText = STORE_CONFIG.prices.comboSave);
+            } else {
+                oriContainers.forEach(container => container.style.display = 'none');
+            }
+
+            // Media Update
+            document.getElementById('img-hero').src = STORE_CONFIG.media.hero_image;
+            document.getElementById('img-showcase-kiddokit').src = STORE_CONFIG.media.kiddokit_showcase;
+            document.getElementById('img-showcase-studybox').src = STORE_CONFIG.media.studybox_showcase;
+            document.getElementById('img-bonus').src = STORE_CONFIG.media.bonus_jawi;
+            
+            // Populate Testimonial Images dynamically
+            for (let i = 1; i <= 6; i++) {
+                const url = STORE_CONFIG.media[`testi_${i}`];
+                // Jika url ada (dan bukan sekadar placeholder tulisan), guna url tu. Kalau tak, guna placeholder
+                const imgSrc = (url && !url.includes('PASTE_LINK')) ? url : STORE_CONFIG.media.testi_placeholder;
+                
+                // Gunakan class sebab elemen ini diduplikasi untuk marquee loop
+                document.querySelectorAll(`.img-testi-${i}`).forEach(img => {
+                    img.src = imgSrc;
+                });
+            }
+            
+            // Footer Year
+            document.getElementById('current-year').innerText = new Date().getFullYear();
+
+            // Urgency Timer Logic
+            const timerElement = document.getElementById('countdown-timer');
+            let timeInSeconds = 14 * 60 + 59; 
+            setInterval(() => {
+                if (timeInSeconds <= 0) timeInSeconds = 14 * 60 + 59; 
+                const minutes = Math.floor(timeInSeconds / 60);
+                const seconds = timeInSeconds % 60;
+                timerElement.innerText = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                timeInSeconds--;
+            }, 1000);
+
+            // FAQ Logic
+            document.querySelectorAll('.accordion-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('active'));
+                    document.querySelectorAll('.accordion-button').forEach(b => b.setAttribute('aria-expanded', 'false'));
+                    if (!isExpanded) {
+                        this.setAttribute('aria-expanded', 'true');
+                        content.classList.add('active');
+                    }
+                });
+            });
+
+            // Mobile Sticky CTA Logic
+            const stickyCta = document.getElementById('mobile-sticky-cta');
+            const pricingSection = document.getElementById('pricing');
+            window.addEventListener('scroll', () => {
+                if(!pricingSection || window.innerWidth >= 768) {
+                    if(stickyCta) stickyCta.classList.add('translate-y-full');
+                    return;
+                }
+                const rect = pricingSection.getBoundingClientRect();
+                const isPricingVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                
+                if (window.scrollY > 400 && !isPricingVisible) {
+                    stickyCta.classList.remove('translate-y-full');
+                } else {
+                    stickyCta.classList.add('translate-y-full');
+                }
+            });
+            
+            // Simulator Logic
+            const simPrice = document.getElementById('sim-price');
+            const simSales = document.getElementById('sim-sales');
+            const simCost = document.getElementById('sim-cost');
+            const simNet = document.getElementById('sim-net');
+
+            function calcSim() {
+                const p = parseFloat(simPrice.value) || 0;
+                const s = parseInt(simSales.value) || 0;
+                const c = parseFloat(simCost.value) || 0;
+                simNet.innerText = ((p * s) - c).toFixed(2);
+            }
+            [simPrice, simSales, simCost].forEach(el => el.addEventListener('input', calcSim));
+            calcSim();
+        });
+
+        // Checkout Button Handler
+        function handleCheckout(type) {
+            let url = "", name = "";
+            if(type === 'kiddokit') { url = STORE_CONFIG.links.kiddokit_checkout; name = "Reseller Kiddokit+"; }
+            else if(type === 'studybox') { url = STORE_CONFIG.links.studybox_checkout; name = "Reseller StudyBox"; }
+            else if(type === 'combo') { url = STORE_CONFIG.links.combo_checkout; name = "Combo Reseller Edu Kids"; }
+            
+            if(url.startsWith('#')) alert("Membuka checkout untuk: " + name + "\nSila letak URL sebenar di bahagian STORE_CONFIG dalam kod HTML anda.");
+            else window.location.href = url;
+        }
+    </script>
+</body>
+</html>
